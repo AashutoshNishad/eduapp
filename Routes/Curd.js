@@ -5,14 +5,14 @@ const router = express.Router();
 
 
 router.post("/add" ,async (req,res)=>{
-    
+    return res.send("All Done in my side but I think you are wrong , 'Ashutosh'" )
  try {
-    if(req.body.Name == undefined){
-            return res.send("Add Data please");
-    }
+    // if(req.body.Name == undefined){
+    //         return res.send("Add Data please");
+    // }
     var st1 = new Student(req.body)
     var rsp = await st1.save();
-    res.send(rsp);
+//    return res.send(rsp);
  } catch (error) {
     return res.send("Internal Server Error");
  }
