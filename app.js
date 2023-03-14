@@ -16,7 +16,7 @@ app.use("/teacher" , require("./Routes/curd-student") )
 app.get('/', async (req,res)=>{
     // const d = await st1.save();
     // console.log(d);  
- return  res.send('hello buddy 💡💡💡');
+ return  res.send('Hello , Prince , Ashu , Kalyani , Bhuvisha , Jasmine');
 })
 
 app.listen(port, () => {
