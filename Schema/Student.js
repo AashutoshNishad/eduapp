@@ -24,7 +24,11 @@ Password: {
     type: String,
     required: true,
     default: "1234567"
-}
+},
+points: {
+    type: Number,
+},
+
 })
 
 module.exports = mongoose.model("Student" , Student)
