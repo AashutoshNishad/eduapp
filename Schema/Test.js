@@ -9,11 +9,14 @@ const Test = new mongoose.Schema({
         type: String,
     },
     creater: {
-        type: mongoose
+        type: mongoose.Schema.Types.ObjectId
     },
     quetions: [
-        
+        {
+            type: mongoose.Schema.Types.ObjectId
+        }
     ],
-
+    subject: String,
+    
 })
 module.exports = mongoose.model("Test" , Test);

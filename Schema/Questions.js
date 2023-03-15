@@ -25,6 +25,22 @@ const Quetions = new mongoose.Schema({
         {
             type: String,
         }
+    ],
+    point:{
+        type: Number,
+        unique: true,
+    },
+    options: [
+        {
+            code: {
+                type: Number,
+                unique: true,
+            },
+            value: {
+                type: String,
+                unique: true,
+            }
+        }
     ]
 
 })

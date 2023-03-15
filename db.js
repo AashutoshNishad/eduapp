@@ -3,8 +3,8 @@ require("dotenv").config();
 
 // console.log({data: process.env.USERID , VO: process.env.PASSWORD });
 
-// const mongoUrl = "mongodb://localhost:27017/pw"
-const mongoUrl = `mongodb+srv://${process.env.USERID}:${process.env.PASSWORD}@cluster0.evexpkx.mongodb.net/?retryWrites=true&w=majority`
+const mongoUrl = "mongodb://localhost:27017/pw"
+// const mongoUrl = `mongodb+srv://${process.env.USERID}:${process.env.PASSWORD}@cluster0.evexpkx.mongodb.net/?retryWrites=true&w=majority`
 
 module.exports.connectDatabase = ()=>{
     mongoose
