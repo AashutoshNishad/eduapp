@@ -14,6 +14,8 @@ app.use("/auth" , require("./Routes/auth") )
 app.use("/student" , require("./Routes/Curd") )
 app.use("/teacher" , require("./Routes/curd-student") )
 app.use("/test" , require("./Routes/Components/Test/Test") )
+app.use("/upd" , require("./Routes/update-content/notes") )
+// app.use("/upd" , require("./Routes/update-content") )
 app.get('/', async (req,res)=>{
     // const d = await st1.save();
     // console.log(d);  
