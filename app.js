@@ -15,6 +15,7 @@ app.use("/student" , require("./Routes/Curd") )
 app.use("/teacher" , require("./Routes/curd-student") )
 app.use("/test" , require("./Routes/Components/Test/Test") )
 app.use("/upd" , require("./Routes/update-content/notes") )
+app.use("/today-special" , require("./Routes/Components/Special/Toady-sp") )
 // app.use("/upd" , require("./Routes/update-content") )
 app.get('/', async (req,res)=>{
     // const d = await st1.save();
