@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const { boolean } = require('webidl-conversions');
 
 const Student =new mongoose.Schema({
 Name: {
@@ -37,6 +38,9 @@ organization: {
 organizationid: {
     type: String,
     // required: true,
+},
+todaylogin: {
+    type: Number,
 }
 })
 

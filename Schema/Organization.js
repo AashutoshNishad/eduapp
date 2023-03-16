@@ -7,6 +7,12 @@ var organization = mongoose.Schema({
         require: true,
     },
     teachers: [
-        {}
+        {
+            type: mongoose.Schema.Types.ObjectId,
+        }
+    ],teachers: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+        }
     ]
 })
