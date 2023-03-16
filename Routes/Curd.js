@@ -5,7 +5,7 @@ const router = express.Router();
 const {body , validationResult} = require("express-validator")
 
 
-router.post("/add"   , async (req,res)=>{
+router.post("/add" , [body("Name" , "Please add name").isLength({min: 3 , max: 30})  , body("Mobile" , "add correct mobile number").isMobilePhone() ] , async (req,res)=>{
     // return res.send("All Done in my side but I think you are wrong , 'Ashutosh'" )
  try {
     var st1 = new Student(req.body)
@@ -13,7 +13,7 @@ router.post("/add"   , async (req,res)=>{
    return res.send(rsp);
  } catch (error) {
     console.log(error);
-    return res.send("Internal Server Error");
+    return res.status(500).send("Internal Server Error");
  }
   
 })
