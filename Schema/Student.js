@@ -11,6 +11,7 @@ Class: {
 },
 Mobile: {
     type: Number,
+    required: true,
     length: {
         min: 10,
         max: 10
@@ -28,11 +29,13 @@ Password: {
 points: {
     type: Number,
 },
-organisation: {
+organization: {
     type: String,
+    required: true,
 },
-organisationid: {
+organizationid: {
     type: String,
+    // required: true,
 }
 })
 
