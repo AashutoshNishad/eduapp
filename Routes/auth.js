@@ -9,8 +9,6 @@ router.post("/student/login" , async (req,res)=>{
     
     // res.send(req.body)
     try {
-        
-   
     var data = {StudentId: req.body.StudentId};
     var data2 = await Student.findOne(data);
     console.log(data2);

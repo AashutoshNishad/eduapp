@@ -6,7 +6,7 @@ Name: {
     required: true,
 },
 Class: {
-    type: Number,
+    type: String,
     required: true,
 },
 Mobile: {
@@ -28,7 +28,12 @@ Password: {
 points: {
     type: Number,
 },
-
+organisation: {
+    type: String,
+},
+organisationid: {
+    type: String,
+}
 })
 
 module.exports = mongoose.model("Student" , Student)

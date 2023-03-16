@@ -1,26 +1,23 @@
 const express = require('express');
+const { fetchuser } = require('../../../Helpers/FetchUser');
 const getQuote = require('../../../Helpers/Today-special');
 const router = express.Router()
 
 
-var data = {
-    date: "",
-    quats: "",
-}
+var data = {}
 
 
-router.get("/get" ,async (req,res)=>{
+router.post("/get" , fetchuser ,async (req,res)=>{
 
     try {
-         // console.log(Date().);
     var today = new Date();
     var old = true;
     if(!(today.getDate() === data.date)){
-         data.quats = await getQuote();
+         data = await getQuote();
          data.date = today.getDate();
          old = false;
     }
-    return res.send({quats: data.quats , old })
+    return res.send({...data , old })
     // console.log(today.getDate());
     } catch (error) {
         return res.send("Error")
