@@ -8,6 +8,9 @@ const jwtsecrate = "Hellow";
 router.post("/student/login" , async (req,res)=>{
     
     // res.send(req.body)
+    try {
+        
+   
     var data = {StudentId: req.body.StudentId};
     var data2 = await Student.findOne(data);
     console.log(data2);
@@ -20,6 +23,11 @@ router.post("/student/login" , async (req,res)=>{
     }
    var tocken = jwt.sign(obj , jwtsecrate);
     return res.send({Tocken: tocken});
+} catch (error) {
+    
+    return res.status(500).send("Internal Server error");
+
+}
 })
 
 
