@@ -9,10 +9,10 @@ router.post("/student/login" , async (req,res)=>{
     
     // res.send(req.body)
     try {
-    var data = {StudentId: req.body.StudentId};
+    var data = {Mobile: req.body.Mobile};
     var data2 = await Student.findOne(data);
     console.log(data2);
-    const check = !(req.body.Mobile === data2.Mobile);
+    const check = !(req.body.pass === data2.Password);
     if(check){
         return res.send({Error: true , msg: "Password Not Match"});
     }
