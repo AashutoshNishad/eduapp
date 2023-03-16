@@ -1,5 +1,5 @@
 const express = require('express');
-const upload = require('../../Helpers/upload');
+const upload = require('../../Helpers/upload.js');
 const notes = require('../../Schema/Content/notes');
 const router = express.Router();
 // const multer = require('multer');
