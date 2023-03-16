@@ -10,7 +10,9 @@ var data = {
 
 
 router.get("/get" ,async (req,res)=>{
-    // console.log(Date().);
+
+    try {
+         // console.log(Date().);
     var today = new Date();
     var old = true;
     if(!(today.getDate() === data.date)){
@@ -20,6 +22,10 @@ router.get("/get" ,async (req,res)=>{
     }
     return res.send({quats: data.quats , old })
     // console.log(today.getDate());
+    } catch (error) {
+        return res.send("Error")
+    }
+   
 } )
 
 
