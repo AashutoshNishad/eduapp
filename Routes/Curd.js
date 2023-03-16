@@ -2,15 +2,17 @@ const express = require("express");
 const { fetchuser } = require("../Helpers/FetchUser");
 const Student = require("../Schema/Student");
 const router = express.Router();
+const {body , validationResult} = require("express-validator")
 
 
-router.post("/add"  , async (req,res)=>{
+router.post("/add"   , async (req,res)=>{
     // return res.send("All Done in my side but I think you are wrong , 'Ashutosh'" )
  try {
     var st1 = new Student(req.body)
     var rsp = await st1.save();
    return res.send(rsp);
  } catch (error) {
+    console.log(error);
     return res.send("Internal Server Error");
  }
   
