@@ -8,7 +8,7 @@ const jwtsecrate = "Hellow";
 
 router.post("/student/login" , async (req,res)=>{
     
-    // res.send(req.body)
+    return res.send(req.body)
     try {
     var data = {Mobile: req.body.Mobile};
     var data2 = await Student.findOne(data);
