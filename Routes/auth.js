@@ -13,7 +13,7 @@ router.post("/student/login" , async (req,res)=>{
     var data = {Mobile: req.body.Mobile};
     var data2 = await Student.findOne(data);
     console.log(data2);
-    const check = !(req.body.pass === data2.Password);
+    const check = !(req.body.pass ==     data2.Password);
     if(check){
         return res.send({Error: true , msg: "Password Not Match"});
     }
@@ -35,7 +35,7 @@ router.post("/teacher/login" , async (req,res)=>{
     try {
     var data = {Mobile: req.body.Mobile};
     var data2 = await Teacher.findOne(data);
-    console.log({...data2 , req: req.body});
+    console.log({data: data2 , req: req.body});
     const check = !(req.body.pass === data2.Password);
     if(check){
         return res.send({Error: true , msg: "Password Not Match"});
