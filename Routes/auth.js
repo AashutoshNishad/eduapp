@@ -31,14 +31,14 @@ router.post("/student/login" , async (req,res)=>{
 
 router.post("/teacher/login" , async (req,res)=>{
     
-    // res.send(req.body)
+    res.send(req.body)
     try {
     var data = {Mobile: req.body.Mobile};
     var data2 = await Teacher.findOne(data);
     console.log({data: data2 , req: req.body});
     const check = !(req.body.pass == data2.Password);
     if(check){
-        return res.send({Error: true , msg: "Password Not Match"});
+        return res.send({Error: true , msg: "Password Not Match" , req: req.body  , data2});
     }
     var obj = {
         TeacherID: data2._id
