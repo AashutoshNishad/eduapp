@@ -7,7 +7,7 @@ var cors = require("cors");
 const { connectDatabase } = require("./db");
 const Student = require("./Schema/Student");
 const auth = require("./Routes/auth");
-const topicrouter = require("./Routes/Components/Topic/Topic");
+const topicrouter = require("./Routes/Components/Topic/topic.js");
 app.use(cors())
 app.use(express.json());
 
