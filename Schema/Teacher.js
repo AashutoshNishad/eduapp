@@ -26,6 +26,9 @@ Mobile: {
 TeacherID: {
     type: String,
     length: 5,
+},
+Password: {
+    type: String,
 }
 })
 

@@ -6,7 +6,8 @@ const port = 5000;
 var cors = require("cors");
 const { connectDatabase } = require("./db");
 const Student = require("./Schema/Student");
-const auth = require("./Routes/auth")
+const auth = require("./Routes/auth");
+const topicrouter = require("./Routes/Components/Topic/Topic");
 app.use(cors())
 app.use(express.json());
 
@@ -17,6 +18,7 @@ app.use("/test" , require("./Routes/Components/Test/Test") )
 app.use("/upd" , require("./Routes/update-content/notes") )
 app.use("/today-special" , require("./Routes/Components/Special/Toady-sp") )
 // app.use("/upd" , require("./Routes/update-content") )
+app.use("/topic" , topicrouter)
 app.get('/', async (req,res)=>{
     // const d = await st1.save();
     // console.log(d);  

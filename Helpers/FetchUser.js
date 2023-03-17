@@ -1,7 +1,9 @@
 const Jwt = require("jsonwebtoken");
+const { object } = require("webidl-conversions");
+const Teacher = require("../Schema/Teacher");
 const JWT_SECRET = "Hellow";
 
-module.exports.fetchuser = async (req, res, next) => {
+module.exports.fetchuser =async (req, res, next) => {
   const token = req.header("authToken");
   // return res.send(token);
   if (!token) {
@@ -13,7 +15,6 @@ module.exports.fetchuser = async (req, res, next) => {
     // console.log(user)
     next();
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     res.status(500).send(error);
-  }
-};
+  }}

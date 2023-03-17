@@ -41,7 +41,16 @@ organizationid: {
 },
 todaylogin: {
     type: Number,
-}
+},
+MainTopics: [{
+    type: {
+    type: mongoose.Schema.Types.ObjectId,
+    required: true
+},
+    title: {
+        type: String,
+    }
+}]
 })
 
 module.exports = mongoose.model("Student" , Student)
