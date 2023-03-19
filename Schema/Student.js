@@ -50,7 +50,12 @@ MainTopics: [{
     title: {
         type: String,
     }
-}]
+}],
+level: {
+    type: String,
+    enum: ["Beginner" , "Modrate" , "Pro"],
+    default: "Beginner",
+}
 })
 
 module.exports = mongoose.model("Student" , Student)
