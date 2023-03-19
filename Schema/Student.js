@@ -30,6 +30,7 @@ Password: {
 },
 points: {
     type: Number,
+    default: 0,
 },
 organization: {
     type: String,
