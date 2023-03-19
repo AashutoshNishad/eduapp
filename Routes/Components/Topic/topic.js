@@ -47,14 +47,16 @@ var saveurl = async (url , type , id)=>{
 }
 
 
-topicrouter.post("/addvideo" , [body("type" , "body have a type").isLength({min: 3})] , fetchuser, isteacher , (req,res,next)=>{
+topicrouter.post("/addvideo" , [body("type" , "body have a type").isLength({min: 3})] , fetchuser, isteacher ,async (req,res,next)=>{
     try {
         
-        if(req.body.type === "Youtube"){
-            saveurl(req.body.url , "Youtube" , req.body.topicid)
-        }
-        next();
-        
+        // if(req.body.type === "Youtube"){
+            // saveurl(req.body.url , "Youtube" , req.body.topicid)
+        // }
+        // next();
+        var rsp = await Topic.findByIdAndUpdate(req.body.topicid , {$push: {video: {type: "Youtube" , url: req.body.url }}})
+        return res.send(rsp);
+        return res.send("Unknow Error");
     } catch (error) {
         console.log(error);
         return res.send("error")

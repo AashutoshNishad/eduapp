@@ -12,14 +12,14 @@ const Topic = new mongoose.Schema({
   },
   Subtopic: [
     {
-        name: {
-            type: String,
-            required: true,
-          },
-          id: {
-            type: mongoose.Schema.Types.ObjectId,
-            required: true,
-          }
+      name: {
+        type: String,
+        required: true,
+      },
+      id: {
+        type: mongoose.Schema.Types.ObjectId,
+        required: true,
+      },
     },
   ],
   video: [
@@ -29,11 +29,25 @@ const Topic = new mongoose.Schema({
         required: true,
       },
       url: { type: String, required: true },
+      title: {
+        type: String,
+        required: true,
+      },
+      discription: String,
     },
   ],
   notes: [
     {
-      type: mongoose.Schema.Types.ObjectId,
+      type: {
+        type: String,
+        required: true,
+      },
+      url: { type: String, required: true },
+      title: {
+        type: String,
+        required: true,
+      },
+      discription: String,
     },
   ],
   subject: String,

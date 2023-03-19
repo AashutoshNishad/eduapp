@@ -21,7 +21,7 @@ router.post("/student/login" , async (req,res)=>{
         StudentId: data2._id
     }
    var tocken = jwt.sign(obj , jwtsecrate);
-    return res.send({Tocken: tocken});
+    return res.send({Tocken: tocken ,  type: "Student"});
 } catch (error) {
     
     return res.status(500).send("Internal Server error");
@@ -38,13 +38,13 @@ router.post("/teacher/login" , async (req,res)=>{
     console.log({data: data2 , req: req.body});
     const check = !(req.body.pass == data2.Password);
     if(check){
-        return res.send({Error: true , msg: "Password Not Match" , req: req.body  , data2});
+        return res.send({Error: true , msg: "Password Not Match" });
     }
     var obj = {
         TeacherID: data2._id
     }
    var tocken = jwt.sign(obj , jwtsecrate);
-    return res.send({Tocken: tocken});
+    return res.send({Tocken: tocken , type: "Teacher"});
 } catch (error) {
     
     return res.status(500).send("Internal Server error");

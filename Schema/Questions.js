@@ -41,7 +41,10 @@ const Quetions = new mongoose.Schema({
                 unique: true,
             }
         }
-    ]
+    ],
+    topic: {
+        type: mongoose.Schema.Types.ObjectId,
+    }
 
 })
 

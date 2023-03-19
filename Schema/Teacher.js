@@ -29,6 +29,11 @@ TeacherID: {
 },
 Password: {
     type: String,
+},
+level: {
+    type: String,
+    enum: ["Beginner" , "Modrate" , "Pro"],
+    default: "Beginner",
 }
 })
 
