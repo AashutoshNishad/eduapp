@@ -1,51 +1,51 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const Quetions = new mongoose.Schema({
-    question: {
-        type: String,
+  question: {
+    type: String,
+  },
+  level: {
+    type: String,
+    enum: ["Beginner", "Modrate", "Pro"],
+    default: "Beginner",
+  },
+  type: {
+    type: String,
+    enum: ["MCQ", "MSQ", "NAD", "OTHER"],
+  },
+  answer: {
+    type: String,
+  },
+  creater: {
+    type: String,
+  },
+  date: {
+    type: Date,
+  },
+  tag: [
+    {
+      type: String,
     },
-    level: {
-        type: Number,
-        default: 0,
-    },
-    type: {
-        type: String,
-        enum: ["MCQ" , "MSQ" , "NAD" , "OTHER"],
-    },
-    answer: {
-        type: String,
-    },
-    creater: {
-        type: String,
-    },
-    date: {
-        type: Date,
-    },
-    tag: [
-        {
-            type: String,
-        }
-    ],
-    point:{
+  ],
+  point: {
+    type: Number,
+    unique: true,
+  },
+  options: [
+    {
+      code: {
         type: Number,
         unique: true,
+      },
+      value: {
+        type: String,
+        unique: true,
+      },
     },
-    options: [
-        {
-            code: {
-                type: Number,
-                unique: true,
-            },
-            value: {
-                type: String,
-                unique: true,
-            }
-        }
-    ],
-    topic: {
-        type: mongoose.Schema.Types.ObjectId,
-    }
+  ],
+  topic: {
+    type: mongoose.Schema.Types.ObjectId,
+  },
+});
 
-})
-
-module.exports = mongoose.model("Question" , Quetions );
+module.exports = mongoose.model("Question", Quetions);

@@ -56,9 +56,23 @@ router.post("/test/create" ,async (rea,res)=>{
 })
 
 router.post("/test/addquestion" ,async (req,res)=>{
-
+    return res.send(req.body)
     var rsp = await Test.findByIdAndUpdate(req.body.id, { $push: { quetions: { $each: req.body.questions } } })
 
     return res.send(rsp);
 })
+
+router.post("/test/result" , async (req,res)=>{
+    try {
+      
+
+        
+
+
+    } catch (error) {
+        console.log(error);
+        console.log("Internal server error . !");
+    }
+})
+
 module.exports = router

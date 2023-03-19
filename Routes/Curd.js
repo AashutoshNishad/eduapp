@@ -29,6 +29,8 @@ router.get("/fetch" , fetchuser ,async (req,res)=>{
    
    return res.send(rsp);
 } catch (error) {
+   console.log(error);
+   
     return res.send("Internal Server Error");
  }
 })
