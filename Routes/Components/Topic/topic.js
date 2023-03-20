@@ -141,14 +141,14 @@ topicrouter.post("/addsubtopic", fetchuser, isteacher, async (req, res) => {
     var rsp = await Topic.findByIdAndUpdate(req.body.topicid, {
       $push: { Subtopic: { id: rsp2._id, name: title } },
     });
-    return res.send(rsp);
+    
+    return res.send(( await Topic.findById(req.body.topicid)));
   } catch (error) {
     // console.log(error);
 
     //
 
     //
-    +0;
     return res.send("interna Server error !");
   }
 });
