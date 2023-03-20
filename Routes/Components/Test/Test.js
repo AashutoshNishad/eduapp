@@ -1,4 +1,5 @@
 const express = require('express');
+const { fetchuser } = require('../../../Helpers/FetchUser');
 const Questions = require('../../../Schema/Questions');
 const Test = require('../../../Schema/Test');
 const router = express.Router();
@@ -62,12 +63,24 @@ router.post("/test/addquestion" ,async (req,res)=>{
     return res.send(rsp);
 })
 
-router.post("/test/result" , async (req,res)=>{
+router.post("/test/submit" , fetchuser, async (req,res)=>{
     try {
-      
+        var data = req.body.answersheet;
+        /*
 
+        data = 
+        ++++++++++
+        [
+            {
+            qid: 
+            opid:
+            }
+        ]
+        +++++++++
+
+        */
+        // console.log(data);
         
-
 
     } catch (error) {
         console.log(error);

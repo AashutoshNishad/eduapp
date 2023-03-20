@@ -56,5 +56,10 @@ const Topic = new mongoose.Schema({
       type: String,
     },
   ],
+  level: {
+    type: String,
+    enum: ["Beginner" , "Modrate" , "Pro" , "Main"],
+    default: "Main",
+}
 });
 module.exports = mongoose.model("Topic", Topic);

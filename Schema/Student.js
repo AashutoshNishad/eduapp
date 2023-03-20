@@ -44,7 +44,7 @@ todaylogin: {
     type: Number,
 },
 MainTopics: [{
-    type: {
+    topicid: {
     type: mongoose.Schema.Types.ObjectId,
     required: true
 },

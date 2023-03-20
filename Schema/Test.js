@@ -17,6 +17,7 @@ const Test = new mongoose.Schema({
         }
     ],
     subject: String,
+    topicid: {type: mongoose.Schema.Types.ObjectId , required: true}
     
 })
 module.exports = mongoose.model("Test" , Test);

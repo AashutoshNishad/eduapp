@@ -13,9 +13,6 @@ const Quetions = new mongoose.Schema({
     type: String,
     enum: ["MCQ", "MSQ", "NAD", "OTHER"],
   },
-  answer: {
-    type: String,
-  },
   creater: {
     type: String,
   },
@@ -33,6 +30,7 @@ const Quetions = new mongoose.Schema({
   },
   options: [
     {
+
       code: {
         type: Number,
         unique: true,
@@ -45,7 +43,13 @@ const Quetions = new mongoose.Schema({
   ],
   topic: {
     type: mongoose.Schema.Types.ObjectId,
+    level: {
+      type: String,
+      enum: ["Beginner" , "Modrate" , "Pro"],
+      default: "Beginner",
+  }
   },
+  answersheet: mongoose.Schema.Types.ObjectId,
 });
 
 module.exports = mongoose.model("Question", Quetions);

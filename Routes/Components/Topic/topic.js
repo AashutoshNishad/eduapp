@@ -4,6 +4,7 @@ const { fetchuser } = require('../../../Helpers/FetchUser');
 const isteacher = require('../../../Helpers/isteacher');
 const upload = require('../../../Helpers/upload');
 const video = require('../../../Schema/Content/video');
+const Student = require('../../../Schema/Student');
 const Teacher = require('../../../Schema/Teacher');
 const Topic = require('../../../Schema/Topic');
 const topicrouter = express.Router();
@@ -174,6 +175,35 @@ topicrouter.get("/fetch" , fetchuser , isteacher , async  (req,res)=>{
 
     } catch (error) {
         return res.send("internal server error");
+    }
+})
+
+
+topicrouter.post("/maintopic" , fetchuser , async (req,res)=>{
+    try {
+        
+        var data = await Student.findById(req.user.StudentId).select("MainTopics");
+
+        return res.send(data)
+
+
+    } catch (error) {
+        console.log(error);
+        res.send("internal server error")
+    }
+})
+
+topicrouter.post("/maintopic/add" , fetchuser , async (req,res)=>{
+    try {
+        var {id} = req.body;
+        var data = await Student.findByIdAndUpdate(req.user.StudentId , {$push: {MainTopics: {topicid: id , title: "Nothing"}}})
+         return res.send(data)
+
+
+
+    } catch (error) {
+        console.log(error);
+        res.send("internal server error")
     }
 })
 
