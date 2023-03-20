@@ -49,7 +49,7 @@ topicrouter.post(
       // }
       // next();
       var rsp = await Topic.findByIdAndUpdate(req.body.topicid, {
-        $push: { video: { type: "Youtube", url: req.body.url } },
+        $push: { video: { type: "Youtube", url: req.body.url , title: req.body.title } },
       });
       return res.send(rsp);
       return res.send("Unknow Error");
