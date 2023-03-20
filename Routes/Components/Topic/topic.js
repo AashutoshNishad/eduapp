@@ -182,10 +182,10 @@ topicrouter.post("/fetch", async (req, res) => {
     var rsp = await Topic.findById(topicid);
 
     // return res.send(rsp);
-    return res.send(req.body)
+    return res.send({req: req.body , rsp})
   } catch (error) {
     console.log(error);
-    return res.send("internal server error");
+    return res.send({error});
   }
 });
 
