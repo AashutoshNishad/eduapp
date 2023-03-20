@@ -166,16 +166,16 @@ topicrouter.get("/fetch-teacherid", fetchuser, isteacher, async (req, res) => {
 });
 
 
-topicrouter.get("/fetch", fetchuser, isteacher, async (req, res) => {
+topicrouter.get("/fetch", async (req, res) => {
   try {
     // authorise teacher
-    var { creater } = await Topic.findById(req.body.topicid);
+    // var { creater } = await Topic.findById(req.body.topicid);
 
     // console.log({creater , req: req.user.TeacherID });
 
-    if (req.user.TeacherID != creater) {
-      return res.status(401).send("please use correct detail.");
-    }
+    // if (req.user.TeacherID != creater) {
+    //   return res.status(401).send("please use correct detail.");
+    // }
 
     var { topicid } = req.body;
 
