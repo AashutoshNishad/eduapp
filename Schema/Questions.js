@@ -49,7 +49,7 @@ const Quetions = new mongoose.Schema({
       default: "Beginner",
   }
   },
-  answersheet: mongoose.Schema.Types.ObjectId,
+  answerkey: mongoose.Schema.Types.ObjectId,
 });
 
 module.exports = mongoose.model("Question", Quetions);

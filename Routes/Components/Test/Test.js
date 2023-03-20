@@ -1,5 +1,6 @@
 const express = require('express');
 const { fetchuser } = require('../../../Helpers/FetchUser');
+const answersheet = require('../../../Schema/answersheet');
 const Questions = require('../../../Schema/Questions');
 const Test = require('../../../Schema/Test');
 const router = express.Router();
@@ -63,28 +64,17 @@ router.post("/test/addquestion" ,async (req,res)=>{
     return res.send(rsp);
 })
 
-router.post("/test/submit" , fetchuser, async (req,res)=>{
+router.post("/test/create-answersheet" , fetchuser, async (req,res)=>{
     try {
-        var data = req.body.answersheet;
-        /*
-
-        data = 
-        ++++++++++
-        [
-            {
-            qid: 
-            opid:
-            }
-        ]
-        +++++++++
-
-        */
-        // console.log(data);
         
-
+        var rsp = await answersheet({
+            sid: req.user.StudentId,
+        })
+        
+        return res.send()
     } catch (error) {
         console.log(error);
-        console.log("Internal server error . !");
+        return res.send("Internal server error . !");
     }
 })
 
