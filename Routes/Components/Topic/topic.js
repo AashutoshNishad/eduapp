@@ -166,7 +166,7 @@ topicrouter.get("/fetch-teacherid", fetchuser, isteacher, async (req, res) => {
 });
 
 
-topicrouter.get("/fetch", async (req, res) => {
+topicrouter.post("/fetch", async (req, res) => {
   try {
     // authorise teacher
     // var { creater } = await Topic.findById(req.body.topicid);
