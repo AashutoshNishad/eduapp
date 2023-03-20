@@ -153,6 +153,19 @@ topicrouter.post("/addsubtopic", fetchuser, isteacher, async (req, res) => {
   }
 });
 
+topicrouter.get("/fetch-teacherid", fetchuser, isteacher, async (req, res) => {
+  try {
+    // authorise teacher
+    // return res.send(req.user)
+    var data = await Topic.find({creater: req.user.TeacherID}); 
+
+    return res.send(data);
+  } catch (error) {
+    return res.send("internal server error");
+  }
+});
+
+
 topicrouter.get("/fetch", fetchuser, isteacher, async (req, res) => {
   try {
     // authorise teacher
