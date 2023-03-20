@@ -157,7 +157,7 @@ topicrouter.get("/fetch-teacherid", fetchuser, isteacher, async (req, res) => {
   try {
     // authorise teacher
     // return res.send(req.user)
-    var data = await Topic.find({creater: req.user.TeacherID ,level: "Main"}); 
+    var data = await Topic.find({creater: req.user.TeacherID ,level: "Main"}).select("_id").select("title"); 
 
     return res.send(data);
   } catch (error) {
